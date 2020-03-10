@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script th:replace="Fragments/header :: headerElement">
+</script>
+<title>Death Record</title>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="Fragments/header :: header"></div>
+		<div class="row" style="margin-top: 1.5em;"></div>
+		
+		
+<div class="border border" style="max-width: 80rem;">
+
+		
+			<table class="table table-borderless">
+											
+				<tr>
+					<th class="h5">Total Death Cases</th>
+					<th class="h5" >Today New Death Cases</th>
+				</tr>
+				
+				<tr>
+									
+					<td class="h4" th:text="${totalDeathCases}">0</td>
+					<td class="h4" th:text="${todayDeathCases}">0</td>
+					
+				</tr>
+			</table>
+										
+				</div>
+			</div>
+			
+<div class="container">
+			<table class="table table-bordered">
+				<tr>
+					<th>State</th>
+					<th>Country</th>
+					<th>Total Cases</th>
+					<th>Today New Cases</th>
+				</tr>
+				<tr th:each="location : ${deathLocations}">
+					<td th:text="${location.state}"></td>
+					<td th:text="${location.country}"></td>
+					<td th:text="${location.totalDeathCases}">0</td>
+					<td th:text="${location.todayDeathCases}">0</td>
+				</tr>
+			</table>
+			</div>
+		</body>
+</html>

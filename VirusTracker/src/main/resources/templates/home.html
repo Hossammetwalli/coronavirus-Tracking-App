@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script th:replace="Fragments/header :: headerElement">
+</script>
+<title>Virus Tracker</title>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="Fragments/header :: header"></div>
+		<div class="row" style="margin-top: 1.5em;"></div>
+		
+		<div class="card bg-light mb-5" style="max-width: 80rem;">
+			
+			<div class="text-primary">
+			<h1 class="display-1">Virus Tracker Application</h1>
+</div>
+
+		</div>
+
+		<div class="border border" style="max-width: 80rem;">
+
+
+			<table class="table table-borderless">
+
+				<tr>
+					<th class="h3">Total Reported Cases</th>
+					<th class="h3">Today New Cases</th>
+				</tr>
+
+				<tr>
+					<td class="h2" th:text="${totalCases}">0</td>
+					<td class="h2" th:text="${todayNewCases}">0</td>
+				</tr>
+				
+				
+				<tr class= "text-success">
+					<th class="h5">Total Recovered Cases</th>
+					<th class="h5">Today Recovered Cases</th>
+				</tr>
+
+				<tr>
+					<td class="h4" th:text="${totalRecoveryCases}">0</td>
+					<td class="h4" th:text="${todayRecoveryCases}">0</td>
+				</tr>
+				
+				<tr class= "text-danger">
+					<th class="h5">Total Death Cases</th>
+					<th class="h5">Today Death Cases</th>
+				</tr>
+
+				<tr>
+					<td class="h4" th:text="${totalDeathCases}">0</td>
+					<td class="h4" th:text="${todayDeathCases}">0</td>
+				</tr>
+
+
+			</table>
+
+		</div>
+	</div>
+
+	<div class="container">
+
+	<table class="table table-bordered">
+		<tr>
+			<th>Country</th>
+			<th>State</th>
+			<th>Total Cases</th>
+			<th>Today New Cases</th>
+		</tr>
+		<tr th:each="location : ${locations}">
+			<td th:text="${location.country}"></td>
+			<td th:text="${location.state}"></td>
+			<td th:text="${location.totalCases}">0</td>
+			<td th:text="${location.todayNewCases}">0</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>
